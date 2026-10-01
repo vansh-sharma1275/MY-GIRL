@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Girlfriend's Day 💐</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="flowers-animation" aria-hidden="true"></div>
+    <div class="sparkles" aria-hidden="true"></div>
+
+    <main class="container">
+        <header class="hero">
+            <div class="badge">💐 A little surprise for you</div>
+            <h1>Happy Girlfriend's Day! 💖</h1>
+            <p class="subtitle">A tiny website filled with flowers, memories, questions and rewards.</p>
+            <div class="flower-border">🌸 ✨ 🌷 ✨ 🌸</div>
+        </header>
+
+        <section class="card" id="letter-section">
+            <div class="section-icon">💌</div>
+            <h2>First, there's a letter...</h2>
+            <p class="greeting">Someone wrote something special for you. Would you like to open it?</p>
+
+            <div class="button-group">
+                <button class="primary-btn" id="open-btn">Yes, open it! 💗</button>
+                <button class="secondary-btn" id="no-btn">Not yet 🙈</button>
+            </div>
+        </section>
+
+        <section class="card hidden" id="quiz-section">
+            <div class="section-icon">🧠</div>
+            <h2>How well do you know us?</h2>
+            <p class="section-text">Answer the questions and collect hearts. You can replay the quiz whenever you want.</p>
+
+            <div class="progress-wrap">
+                <div class="progress-info">
+                    <span id="question-counter">Question 1 of 5</span>
+                    <span id="score-label">💗 0 hearts</span>
+                </div>
+                <div class="progress-bar">
+                    <div id="progress-fill"></div>
+                </div>
+            </div>
+
+            <div id="quiz-box"></div>
+        </section>
+
+        <section class="card hidden" id="reward-section">
+            <div class="section-icon">🏆</div>
+            <h2>Your rewards</h2>
+            <p class="section-text">Every completed challenge unlocks something cute.</p>
+
+            <div class="reward-grid">
+                <div class="reward locked" id="reward-letter">
+                    <div class="reward-icon">💌</div>
+                    <h3>Love Letter</h3>
+                    <p>Unlocked by opening the letter.</p>
+                    <span class="status">🔒 Locked</span>
+                </div>
+
+                <div class="reward locked" id="reward-quiz">
+                    <div class="reward-icon">🌟</div>
+                    <h3>Quiz Star</h3>
+                    <p>Earn it by finishing the quiz.</p>
+                    <span class="status">🔒 Locked</span>
+                </div>
+
+                <div class="reward locked" id="reward-perfect">
+                    <div class="reward-icon">👑</div>
+                    <h3>Perfect Score</h3>
+                    <p>Get every quiz answer right.</p>
+                    <span class="status">🔒 Locked</span>
+                </div>
+
+                <div class="reward locked" id="reward-surprise">
+                    <div class="reward-icon">🎁</div>
+                    <h3>Secret Surprise</h3>
+                    <p>Complete the experience to reveal it.</p>
+                    <span class="status">🔒 Locked</span>
+                </div>
+            </div>
+
+            <div id="surprise-box" class="surprise-box hidden">
+                <div class="confetti">🎉 💖 🎉</div>
+                <h3>A little surprise for you</h3>
+                <p id="surprise-message"></p>
+                <button class="primary-btn" id="another-btn">Give me another surprise ✨</button>
+            </div>
+
+            <button class="reset-btn" id="reset-btn">↻ Start again</button>
+        </section>
+
+        <footer>
+            Made with 💗, flowers and a little bit of JavaScript
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

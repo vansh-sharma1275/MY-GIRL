@@ -1,0 +1,513 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #5e366e;
+    background:
+        linear-gradient(rgba(255, 235, 247, 0.38), rgba(255, 246, 237, 0.48)),
+        url("background.jpg") center / cover fixed no-repeat;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255,255,255,.65), transparent 55%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+#flowers-animation {
+    pointer-events: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.flower {
+    position: absolute;
+    pointer-events: none;
+    will-change: transform, top, left;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,.12));
+}
+
+.container {
+    width: min(920px, calc(100% - 30px));
+    margin: 35px auto 25px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero,
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, .85);
+    box-shadow: 0 18px 55px rgba(119, 49, 91, .16);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.hero {
+    text-align: center;
+    border-radius: 30px;
+    padding: 42px 25px 28px;
+    animation: fadeUp .8s ease both;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: #fff0f7;
+    color: #c72e68;
+    font-size: .9rem;
+    font-weight: 700;
+}
+
+h1 {
+    margin: 14px 0 8px;
+    color: #d72660;
+    font-size: clamp(2.25rem, 7vw, 4rem);
+    line-height: 1.05;
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+}
+
+.subtitle {
+    max-width: 650px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+.flower-border {
+    margin-top: 18px;
+    letter-spacing: 8px;
+    font-size: 1.5rem;
+}
+
+.card {
+    margin-top: 22px;
+    border-radius: 25px;
+    padding: 34px;
+    animation: fadeUp .7s ease both;
+}
+
+.card h2 {
+    margin: 7px 0 10px;
+    color: #a72e64;
+    text-align: center;
+}
+
+.section-icon {
+    width: 58px;
+    height: 58px;
+    margin: 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #fff0f6;
+    font-size: 1.8rem;
+    box-shadow: 0 7px 20px rgba(215, 38, 96, .12);
+}
+
+.greeting,
+.section-text {
+    text-align: center;
+    line-height: 1.7;
+    font-size: 1.05rem;
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+button {
+    font: inherit;
+}
+
+.primary-btn,
+.secondary-btn,
+.reset-btn {
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 22px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease, filter .2s ease;
+}
+
+.primary-btn {
+    color: white;
+    background: linear-gradient(135deg, #e85b8b, #c93573);
+    box-shadow: 0 8px 20px rgba(201, 53, 115, .25);
+}
+
+.secondary-btn {
+    color: #a72e64;
+    background: #fff0f6;
+}
+
+.primary-btn:hover,
+.secondary-btn:hover,
+.reset-btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.04);
+}
+
+.primary-btn:active,
+.secondary-btn:active,
+.reset-btn:active {
+    transform: translateY(0) scale(.98);
+}
+
+.hidden {
+    display: none !important;
+}
+
+#letter {
+    max-width: 700px;
+    margin: 10px auto 0;
+    padding: 35px 30px;
+    background: linear-gradient(145deg, #fff8fc, #fff0f6);
+    border: 1px solid #f6cfe1;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: inset 0 0 35px rgba(255, 255, 255, .9);
+    animation: letterOpen .8s ease both;
+}
+
+.letter-top {
+    color: #d44b7d;
+    font-size: .9rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+#letter h2 {
+    font-family: "Brush Script MT", "Segoe Script", cursive;
+    font-size: 2.2rem;
+}
+
+#letter p {
+    margin: 0;
+    line-height: 1.85;
+    font-size: 1.08rem;
+}
+
+.continue-btn {
+    display: block;
+    margin: 20px auto 0;
+}
+
+.progress-wrap {
+    max-width: 700px;
+    margin: 24px auto;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+    font-size: .9rem;
+    font-weight: 800;
+}
+
+.progress-bar {
+    height: 11px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #f6dce9;
+}
+
+#progress-fill {
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, #f27ba4, #c72e68);
+    transition: width .45s ease;
+}
+
+.question-card {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 25px;
+    border-radius: 20px;
+    background: #fffafd;
+    border: 1px solid #f3d6e4;
+}
+
+.question-number {
+    text-align: center;
+    color: #c72e68;
+    font-weight: 800;
+    font-size: .9rem;
+}
+
+.question-card h3 {
+    text-align: center;
+    line-height: 1.5;
+    margin: 12px 0 20px;
+}
+
+.answers {
+    display: grid;
+    gap: 10px;
+}
+
+.answer-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #f0d5e2;
+    border-radius: 14px;
+    background: white;
+    color: #5e366e;
+    text-align: left;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.answer-btn span {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    flex: 0 0 32px;
+    border-radius: 50%;
+    background: #fff0f6;
+    color: #c72e68;
+    font-weight: 900;
+}
+
+.answer-btn:hover:not(:disabled) {
+    border-color: #e85b8b;
+    transform: translateX(3px);
+}
+
+.answer-btn:disabled {
+    cursor: default;
+}
+
+.answer-btn.correct {
+    background: #e9fff1;
+    border-color: #66c88b;
+}
+
+.answer-btn.wrong {
+    background: #fff0f0;
+    border-color: #ef7b7b;
+}
+
+.quiz-feedback {
+    min-height: 25px;
+    margin: 14px 0 0;
+    text-align: center;
+    font-weight: 800;
+}
+
+.quiz-feedback.good {
+    color: #27834c;
+}
+
+.result-card {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 30px;
+    text-align: center;
+    background: #fff8fc;
+    border-radius: 20px;
+}
+
+.result-emoji {
+    font-size: 3rem;
+}
+
+.result-card h3 {
+    color: #c72e68;
+    font-size: 1.6rem;
+}
+
+.reward-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.reward {
+    min-height: 190px;
+    padding: 18px 12px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #f0d8e4;
+    background: white;
+    transition: .25s ease;
+}
+
+.reward.locked {
+    opacity: .55;
+    filter: grayscale(.55);
+}
+
+.reward.unlocked {
+    background: linear-gradient(145deg, #fff7fb, #ffe8f2);
+    border-color: #ef9fbd;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(201, 53, 115, .12);
+}
+
+.reward-icon {
+    font-size: 2.1rem;
+}
+
+.reward h3 {
+    margin: 9px 0 6px;
+    color: #a72e64;
+}
+
+.reward p {
+    margin: 0 0 10px;
+    font-size: .85rem;
+    line-height: 1.45;
+}
+
+.status {
+    font-size: .8rem;
+    font-weight: 900;
+}
+
+.surprise-box {
+    margin: 22px auto 0;
+    max-width: 650px;
+    padding: 25px;
+    text-align: center;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #fff0f7, #fff8e9);
+    border: 2px dashed #e6a0bb;
+    animation: fadeUp .6s ease both;
+}
+
+.confetti {
+    font-size: 1.5rem;
+}
+
+.surprise-box h3 {
+    color: #c72e68;
+    font-size: 1.4rem;
+}
+
+.surprise-box p {
+    line-height: 1.6;
+}
+
+.reset-btn {
+    display: block;
+    margin: 22px auto 0;
+    color: #7e4c70;
+    background: #f8e8f1;
+}
+
+footer {
+    text-align: center;
+    padding: 24px 10px;
+    font-size: .85rem;
+    opacity: .85;
+}
+
+.burst-heart {
+    position: fixed;
+    z-index: 20;
+    pointer-events: none;
+    font-size: 1.6rem;
+    animation: burst 1.4s ease-out forwards;
+}
+
+@keyframes burst {
+    0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(.6) rotate(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(
+            calc((var(--x, 1) - .5) * 400px),
+            -220px
+        ) scale(1.4) rotate(220deg);
+    }
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes letterOpen {
+    from { opacity: 0; transform: scale(.96) translateY(18px); }
+    to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@media (max-width: 760px) {
+    .container {
+        width: min(100% - 18px, 650px);
+        margin-top: 12px;
+    }
+
+    .hero {
+        padding: 30px 16px 22px;
+        border-radius: 22px;
+    }
+
+    .card {
+        padding: 23px 15px;
+        border-radius: 20px;
+    }
+
+    .reward-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progress-info {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 430px) {
+    h1 {
+        font-size: 2.45rem;
+    }
+
+    .reward-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+
+    #letter {
+        padding: 25px 18px;
+    }
+}
